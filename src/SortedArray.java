@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class SortedArray {
@@ -10,7 +11,6 @@ public class SortedArray {
             System.out.println("Enter value " + (i + 1) + " out of " + array.length + ": ");
             array[i] = scanner.nextInt();
         }
-
         return array;
     }
 
@@ -21,17 +21,17 @@ public class SortedArray {
     }
 
     public static int[] sortIntegers(int[] array) {
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array.length; j++) {
-                if (array[i] > array[j]) {
-                    int temp = array[i];
-                    array[i] = array[j];
-                    array[j] = temp;
+        int[] sortedArray = Arrays.copyOf(array, array.length);
+        for (int i = 0; i < sortedArray.length; i++) {
+            for (int j = 0; j < sortedArray.length; j++) {
+                if (sortedArray[i] > sortedArray[j]) {
+                    int temp = sortedArray[i];
+                    sortedArray[i] = sortedArray[j];
+                    sortedArray[j] = temp;
                 }
             }
         }
-
-        return array;
+        return sortedArray;
     }
 
 }
